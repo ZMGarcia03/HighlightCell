@@ -1,0 +1,18 @@
+Sub HighlightActiveCell()
+    ' Define the highlight color.
+    Dim HighlightColor As Long
+    HighlightColor = RGB(255, 0, 0) ' Red
+
+    ' Store the current active cell's address.
+    Dim ActiveCellAddress As String
+    ActiveCellAddress = ActiveCell.Address
+
+    ' Change the background color of the active cell.
+    ActiveCell.Interior.Color = HighlightColor
+
+    ' Wait for a moment (e.g., 1 second) to see the highlight.
+    Application.Wait Now + TimeValue("00:00:01")
+
+    ' Restore the original background color.
+    ActiveSheet.Range(ActiveCellAddress).Interior.ColorIndex = xlNone
+End Sub
